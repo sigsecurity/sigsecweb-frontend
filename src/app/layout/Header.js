@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from 'react-bulma-components/lib/components/navbar';
 import Container from 'react-bulma-components/lib/components/container';
-import logo from './lock-logo.png'
+import logo from './header/lock-logo.svg'
 
 class Header extends Component {
   state = { isActive: false }
@@ -17,7 +17,7 @@ class Header extends Component {
         <Container>
           <Navbar.Brand>
             <Navbar.Item renderAs="a" href="#">
-              <img src={logo} height='28' alt=''/>
+              <img src={logo} height='100%' alt='SIG-Security Logo' />
               ACM SIG-Security
             </Navbar.Item>
           </Navbar.Brand>
