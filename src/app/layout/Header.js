@@ -14,16 +14,15 @@ class Header extends Component {
   }
 
   auth = () => {
+    const authWindow = window.open("", "_blank", 'height=600,width=450');
     fetch('https://sigsecdev.0x99.net/api/google/auth')
       .then((response) => {
         return response.json();
       })
       .then((json) => {
         if(json.success) {
-          const authWindow = window.open(json.auth_url, "", 'height=600,width=450');
-          if (window.focus) {
-            authWindow.focus();
-          }
+          authWindow.location.href = json.auth_url;
+          if (window.focus) authWindow.focus();
         }
       })
   }
