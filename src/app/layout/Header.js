@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 import Navbar from 'react-bulma-components/lib/components/navbar';
 import Container from 'react-bulma-components/lib/components/container';
-<<<<<<< Updated upstream
-import logo from './lock-logo.png'
-=======
 import Button from 'react-bulma-components/lib/components/button';
 import logo from './header/lock-logo.svg'
->>>>>>> Stashed changes
 
 class Header extends Component {
   state = { isActive: false }
