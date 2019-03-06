@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import Navbar from 'react-bulma-components/lib/components/navbar';
 import Container from 'react-bulma-components/lib/components/container';
+<<<<<<< Updated upstream
 import logo from './lock-logo.png'
+=======
+import Button from 'react-bulma-components/lib/components/button';
+import logo from './header/lock-logo.svg'
+>>>>>>> Stashed changes
 
 class Header extends Component {
   state = { isActive: false }
@@ -11,6 +16,22 @@ class Header extends Component {
       isActive: !prevState.isActive
     }));
   }
+
+  auth = () => {
+    fetch('https://sigsecdev.0x99.net/api/google/auth')
+      .then((response) => {
+        return response.json();
+      })
+      .then((json) => {
+        if(json.success) {
+          const authWindow = window.open(json.auth_url, "", 'height=600,width=450');
+          if (window.focus) {
+            authWindow.focus();
+          }
+        }
+      })
+  }
+
   render() { 
     return ( 
       <Navbar fixed='top'>
@@ -21,6 +42,12 @@ class Header extends Component {
               ACM SIG-Security
             </Navbar.Item>
           </Navbar.Brand>
+          <Navbar.Container position="end">
+            <Button.Group>
+              <Button renderAs='a' color='primary' onClick={this.auth}>Join</Button>
+              <Button renderAs='a' onClick={this.auth}>Login</Button>
+            </Button.Group>
+          </Navbar.Container>
         </Container>
       </Navbar>
     );
